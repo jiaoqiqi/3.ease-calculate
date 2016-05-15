@@ -1,66 +1,53 @@
 function calculate_median(arr) {
 
-	var evenNumber = getEvenNumbers(arr);
-	var allNumbers = getAllNumbers(arr,evenNumber);
-	var midNumber = getMidNumber(allNumbers);
+    var evenNumber = buildEvenArray(arr);
+    var midNumber = buildMidNumber(arr, evenNumber);
 
-	return midNumber; 
+    return midNumber;
+
 }
 
-function getEvenNumbers(arr)
-{
-	var evenNumber = [];
-	var i = 0 ; 
+function buildEvenArray(arr) {
+    var evenNumber = [];
+    var j = 0;
 
-	for(var j = 0 ; j<arr.length ; j++)
-	{
-		if(arr[j] % 2 === 0)
-		{
-			evenNumber[i] = arr[j];
-			i++;
-		}
-	}
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            evenNumber[j] = arr[i];
+            j++;
+        }
+    }
 
-	return evenNumber;
+    return evenNumber;
 }
 
-function  getEvenNumbers(arr,flag)
-{
-	for(var i = 0 ; i < arr.length ; i++)
-	{
-		if(arr[i] === flag)
-		{
-			return i;
-		}
-	}
+function searchEvenNumber(arr, even) {
+    for(var i = 0; i<arr.length;i++){
+        if(arr[i] === even){
+
+            return i;
+        }
+    }
 }
 
-function getAllNumbers(arr,evenNumber)
-{
+function buildMidNumber(arr, evenNumber) {
+    var allNumbers = [];
+    var n = 0;
 
-	var allNumbers=[];
-	var i = 0 ; 
+    for (var i = 0; i < arr.length; i++) {
+        var firstEven = searchEvenNumber(arr, evenNumber[0]);
+        var finalEven = searchEvenNumber(arr, evenNumber[evenNumber.length - 1]);
+        if (i >= firstEven && i <= finalEven) {
+            allNumbers[n] = arr[i];
+            n++;
+        }
+    }
 
-	for(var j = 0 ; j < arr.length ; j++)
-	{
-		var first = getEvenNumbers(arr,evenNumber[0]);
+    var mid = parseInt(allNumbers.length/2);
 
-		var last = getEvenNumbers(arr,evenNumber[evenNumber.length-1]);
+    return allNumbers[mid];
 
-		if(j >= first && j <= last)
-		{
-			allNumbers[i]=arr[j];
-			i++;
-		}
-	}
-
-	return allNumbers;
 }
 
-function getMidNumber(allNumbers)
-{
-	var number = parseInt(allNumbers.length/2);
 
-	return allNumbers[number];
-}
 module.exports = calculate_median;
