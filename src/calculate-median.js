@@ -34,7 +34,7 @@ function getMidNumbers(arr,evenNumber)
 {
 	var allNumbers=[];
 	var i = 0 ; 
-	for(for j = 0 ; j < arr.length ; j++)
+	for(var j = 0 ; j < arr.length ; j++)
 	{
 		var first = getEvenNumbers(arr,evenNumber[0]);
 		var last = getEvenNumbers(arr,evenNumber[evenNumber.length-1]);
