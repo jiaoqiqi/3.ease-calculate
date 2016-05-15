@@ -4,8 +4,7 @@ function calculate_median(arr) {
 	var allNumbers = getAllNumbers(arr,evenNumber);
 	var midNumber = getMidNumber(allNumbers);
 
-	return midNumber;
-  
+	return midNumber; 
 }
 
 function getEvenNumbers(arr)
@@ -27,7 +26,7 @@ function getEvenNumbers(arr)
 
 function  getEvenNumbers(arr,flag)
 {
-	for(var i = 0 ; i < arr.lenght ; i++)
+	for(var i = 0 ; i < arr.length ; i++)
 	{
 		if(arr[i] === flag)
 		{
