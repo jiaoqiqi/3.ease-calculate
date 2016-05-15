@@ -1,5 +1,51 @@
 function calculate_median(arr) {
-  //请勿改动函数名
+	var evenNumber=getEvenNumbers(arr);
+	var midNumber=getMidNumbers(arr,evenNumber);
+  
 }
 
-module.exports = calculate_median;
+function getEvenNumbers(arr)
+{
+	var evenNumber = [];
+	var i = 0 ; 
+	for(var j = 0 ; j<arr.length ; j++)
+	{
+		if(arr[j]%2 === 0)
+		{
+			evenNumber[i] = arr[j];
+			i++;
+		}
+	}
+	return evenNumber;
+}
+
+function  getEvenNumbers(arr,flag)
+{
+	for(var i = 0 ; i < arr.lenght ; i++)
+	{
+		if(arr[i] === flag)
+		{
+			return i;
+		}
+	}
+}
+
+function getMidNumbers(arr,evenNumber)
+{
+	var allNumbers=[];
+	var i = 0 ; 
+	for(for j = 0 ; j < arr.length ; j++)
+	{
+		var first = getEvenNumbers(arr,evenNumber[0]);
+		var last = getEvenNumbers(arr,evenNumber[evenNumber.length-1]);
+		if(j >= first && j <= last)
+		{
+			allNumbers[i]=arr[j];
+			i++;
+		}
+	}
+	var number = allNumbers.length/2;
+	var newNumber=parseInt(number);
+	var midNumber=allNumbers[newNumber];
+	return midNumber;
+}
