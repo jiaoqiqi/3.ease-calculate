@@ -63,3 +63,4 @@ function getMidNumber(allNumbers)
 
 	return allNumbers[number];
 }
+module.exports = calculate_median;
