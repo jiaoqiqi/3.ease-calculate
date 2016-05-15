@@ -1,7 +1,8 @@
 function calculate_median(arr) {
 
-	var evenNumber=getEvenNumbers(arr);
-	var midNumber=getMidNumbers(arr,evenNumber);
+	var evenNumber = getEvenNumbers(arr);
+	var allNumbers = getAllNumbers(arr,evenNumber);
+	var midNumber = getMidNumber(allNumbers);
 
 	return midNumber;
   
@@ -10,11 +11,11 @@ function calculate_median(arr) {
 function getEvenNumbers(arr)
 {
 	var evenNumber = [];
-
 	var i = 0 ; 
+
 	for(var j = 0 ; j<arr.length ; j++)
 	{
-		if(arr[j]%2 === 0)
+		if(arr[j] % 2 === 0)
 		{
 			evenNumber[i] = arr[j];
 			i++;
@@ -35,7 +36,7 @@ function  getEvenNumbers(arr,flag)
 	}
 }
 
-function getMidNumbers(arr,evenNumber)
+function getAllNumbers(arr,evenNumber)
 {
 
 	var allNumbers=[];
@@ -54,9 +55,12 @@ function getMidNumbers(arr,evenNumber)
 		}
 	}
 
-	var number = allNumbers.length/2;
-	var newNumber=parseInt(number);
-	var midNumber=allNumbers[newNumber];
-	
-	return midNumber;
+	return allNumbers;
+}
+
+function getMidNumber(allNumbers)
+{
+	var number = parseInt(allNumbers.length/2);
+
+	return allNumbers[number];
 }
