@@ -6,3 +6,4 @@
 
 例如当传入[1,2,3,4] 则函数应该返回2和4的中位数——3
 # 3.ease-calculate
+# 3.ease-calculate
